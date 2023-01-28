@@ -12,10 +12,13 @@ proc GameLogic(Player: var Vector2, PlayerSize: Vector2) =
   let SPEED: float32 = 250
   let delta = getFrameTime()
 
-  if isKeyDown(D):
-    Player.x += SPEED * delta
-  if isKeyDown(A):
-    Player.x -= SPEED * delta
+  if isKeyDown(Space):
+    Player.y -= SPEED * delta
+  if isKeyReleased(Space):
+    if Player.y > 200.0:
+      Player.y += SPEED * delta
+
+
   DrawGame(Player, PlayerSize)
     
 
